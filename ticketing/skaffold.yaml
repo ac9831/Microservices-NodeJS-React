@@ -8,9 +8,9 @@ build:
   # local:
   #   push: false
   googleCloudBuild:
-    projectId: ticketing-dev-352504
+    projectId: praxis-cab-352714
   artifacts:
-    - image: us.gcr.io/ticketing-dev-352504/auth
+    - image: us.gcr.io/praxis-cab-352714/auth
       context: auth
       docker:
         dockerfile: Dockerfile
