@@ -7,14 +7,22 @@ deploy:
 build:
   # local:
   #   push: false
-  googleCloudBuild:
-    projectId: praxis-cab-352714
+  # googleCloudBuild:
+  #   projectId: praxis-cab-352714
   artifacts:
-    - image: us.gcr.io/praxis-cab-352714/auth
+    - image: ac9831/auth
       context: auth
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.ts'
+            dest: .
+    - image: ac9831/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
             dest: .
