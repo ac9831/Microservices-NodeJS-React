@@ -11,7 +11,7 @@ let mongo: any
 beforeAll(async () => {
     process.env.JWT_KEY = 'asdf'
     mongo = await MongoMemoryServer.create();
-    mongoose.connect(mongo.getUri())
+    await mongoose.connect(mongo.getUri())
 })
 
 beforeEach(async () => {
