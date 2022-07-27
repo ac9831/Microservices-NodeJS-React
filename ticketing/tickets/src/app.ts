@@ -1,4 +1,4 @@
-import { errorHandler, NotFoundError } from '@ac9831_sgtickets/common/build'
+import { errorHandler, NotFoundError, currentUser } from '@ac9831_sgtickets/common/build'
 import { json } from 'body-parser'
 import cookieSession from 'cookie-session'
 import express from 'express'
@@ -14,6 +14,7 @@ app.use(
         secure: process.env.NODE_ENV !== 'test'
     })
 )
+app.use(currentUser)
 
 app.use(createTicketRouter)
 
