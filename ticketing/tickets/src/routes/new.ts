@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express'
 import { body } from 'express-validator'
-import { requireAuth, validateRequest } from '@ac9831_sgtickets/common'
+import { requireAuth, validateRequest } from '@ac9831_sgtickets/common/build/index'
 import { Ticket } from '../models/ticket'
 
 const router = express.Router()
