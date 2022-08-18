@@ -10,24 +10,24 @@ declare global {
 
 let mongo: any
 beforeAll(async () => {
-    process.env.JWT_KEY = 'asdf'
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-    mongo = await MongoMemoryServer.create();
-    await mongoose.connect(mongo.getUri())
+  process.env.JWT_KEY = 'asdf'
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+  mongo = await MongoMemoryServer.create();
+  await mongoose.connect(mongo.getUri());
 })
 
 beforeEach(async () => {
-    const collections = await mongoose.connection.collections
+  const collections = await mongoose.connection.collections
 
-    for (let key in collections) {
-        const collection = collections[key];
-        await collection.deleteMany({});
-    }
+  for (let key in collections) {
+      const collection = collections[key];
+      await collection.deleteMany({});
+  }
 })
 
 afterAll(async () => {
-    await mongo.stop()
-    await mongoose.connection.close()
+  await mongoose.connection.close()
+  await mongo.stop()
 })
 
 global.signin = () => {
