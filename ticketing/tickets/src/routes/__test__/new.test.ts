@@ -6,7 +6,6 @@ it('has a route handler listening to /api/tickets/ for post requests', async () 
   const response = await request(app)
     .post('/api/tickets')
     .send({})
-  console.log(response.status)
   expect(response.status).not.toEqual(404)
 })
 
